@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols, ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="dot"></span>TOKEN RADAR</div>
+  <p class="tag">Protocols that record no token yet, ranked by what a token would be worth if their record stayed as it is.</p>
+  <dl class="stats" id="stats"></dl>
+</header>
+
+<section class="model" id="model"></section>
+
+<section class="controls">
+  <input id="q" type="search" placeholder="Search name, slug or category…" aria-label="Search">
+  <select id="cat" aria-label="Category"><option value="">All categories</option></select>
+  <select id="chain" aria-label="Chain"><option value="">All chains</option></select>
+  <label class="check"><input id="watch" type="checkbox"> Watchlist only</label>
+  <span class="count" id="count"></span>
+</section>
+
+<section class="detail" id="detail" hidden></section>
+
+<main>
+  <table class="board" id="board">
+    <thead><tr>
+      <th data-sort="r" class="num">Rank</th>
+      <th data-sort="n">Protocol</th>
+      <th data-sort="c">Category</th>
+      <th data-sort="ch">Chains</th>
+      <th data-sort="t" class="num">TVL</th>
+      <th data-sort="g" class="num">7d</th>
+      <th data-sort="a" class="num">Age</th>
+      <th data-sort="v" class="num">Implied value</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+</main>
+
+<section class="live">
+  <h2>Already trading — for reference</h2>
+  <p>These protocols already have a token, so the board does not rank them. Their market caps are the market's own values, not the model's.</p>
+  <table class="board small" id="live-table">
+    <thead><tr><th>Protocol</th><th>Category</th><th class="num">TVL</th><th class="num">Market cap</th></tr></thead>
+    <tbody id="live-rows"></tbody>
+  </table>
+</section>
+
+<footer>
+  <p>Snapshot: DefiLlama protocols, fetched 2026-11-14. A protocol is listed as recording no token when its record carries no market cap, no CoinGecko id and no symbol — that is what its record says, not proof it has none. Implied values are this radar's own claim, never a prediction that a token will be issued.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
